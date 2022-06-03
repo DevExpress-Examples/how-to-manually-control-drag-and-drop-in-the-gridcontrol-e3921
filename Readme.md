@@ -3,11 +3,28 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E3921)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# How to manually control Drag-and-Drop in the GridControl
 
+# WPF Data Grid - Manually Control Drag-and-Drop
 
-<p>This example demonstrates how to customize <a href="https://documentation.devexpress.com/WPF/11346/Controls-and-Libraries/Data-Grid/Drag-and-Drop">Drag-and-Drop</a> functionality in the GridControl using <a href="https://documentation.devexpress.com/WPF/119241/Controls-and-Libraries/Data-Grid/Drag-and-Drop/Drag-and-Drop-Options">Drag-and-Drop-related events</a>.<br>A drag-and-drop operation changes the <strong>Position</strong> and <strong>Department</strong> values depending on the new location of a dropped record.</p>
+This example demonstrates how to use [drag-and-drop events](https://docs.devexpress.com/WPF/119241/controls-and-libraries/data-grid/drag-and-drop/drag-and-drop-options) to customize the drag-and-drop behavior in the [GridControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl).
+A drag-and-drop operation changes the **Position** and **Department** values based on the dropped record's new location.
 
-<br/>
+<!-- default file list -->
 
+## Files to Look At
 
+* [MainWindow.xaml](./CS/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/MainWindow.xaml))
+* [MainWindow.xaml.cs](./CS/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/MainWindow.xaml.vb))
+
+<!-- default file list end -->
+
+## Documentation
+
+* [Drag-and-Drop Options](https://docs.devexpress.com/WPF/119241/controls-and-libraries/data-grid/drag-and-drop/drag-and-drop-options)
+* [Process Drag-and-Drop Operations](https://docs.devexpress.com/WPF/400431/controls-and-libraries/data-grid/drag-and-drop/process-drag-and-drop-operations)
+* [Drag-and-Drop](http://docs.devexpress.com/WPF/11346/controls-and-libraries/data-grid/drag-and-drop)
+
+## More Examples
+
+* [WPF Data Grid - Implement Drag-and-Drop Between the GridControl and Other Controls](https://github.com/DevExpress-Examples/how-to-implement-drag-and-drop-between-the-gridcontrol-and-other-controls-t566741)
+* [WPF Data Grid - Customize the Drop Marker](https://github.com/DevExpress-Examples/how-to-customize-drop-marker-t568780)
