@@ -5,7 +5,7 @@
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 
-# WPF Data Grid - Manually Control Drag-and-Drop
+# WPF Data Grid - Handle drag-and-drop operations
 
 This example demonstrates how to use [drag-and-drop events](https://docs.devexpress.com/WPF/119241/controls-and-libraries/data-grid/drag-and-drop/drag-and-drop-options) to customize the drag-and-drop behavior in the [GridControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl).
 A drag-and-drop operation changes the **Position** and **Department** values based on the dropped record's new location.
