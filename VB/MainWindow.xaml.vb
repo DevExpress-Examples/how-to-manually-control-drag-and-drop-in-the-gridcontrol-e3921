@@ -1,17 +1,24 @@
-﻿Imports System.Collections.ObjectModel
+Imports System.Collections.ObjectModel
 Imports System.Windows
 Imports DevExpress.Xpf.Core
 
 Namespace WPF_GridControl_Custom_Drag_and_Drop
-    Partial Public Class MainWindow
+
+    Public Partial Class MainWindow
         Inherits Window
 
         Public Class Employee
-            Public Property ID() As Integer
-            Public Property ParentID() As Integer
-            Public Property Name() As String
-            Public Property Position() As String
-            Public Property Department() As String
+
+            Public Property ID As Integer
+
+            Public Property ParentID As Integer
+
+            Public Property Name As String
+
+            Public Property Position As String
+
+            Public Property Department As String
+
             Public Overrides Function ToString() As String
                 Return Name
             End Function
@@ -19,162 +26,46 @@ Namespace WPF_GridControl_Custom_Drag_and_Drop
 
         Public NotInheritable Class Stuff
 
-            Private Sub New()
-            End Sub
-
             Public Shared Function GetStuff() As ObservableCollection(Of Employee)
-
-                Dim stuff_Renamed As New ObservableCollection(Of Employee)()
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 1, _
-                    .ParentID = 0, _
-                    .Name = "Gregory S. Price", _
-                    .Department = "", _
-                    .Position = "President" _
-                })
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 2, _
-                    .ParentID = 1, _
-                    .Name = "Irma R. Marshall", _
-                    .Department = "Marketing", _
-                    .Position = "Vice President" _
-                })
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 3, _
-                    .ParentID = 1, _
-                    .Name = "John C. Powell", _
-                    .Department = "Operations", _
-                    .Position = "Vice President" _
-                })
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 4, _
-                    .ParentID = 1, _
-                    .Name = "Christian P. Laclair", _
-                    .Department = "Production", _
-                    .Position = "Vice President" _
-                })
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 5, _
-                    .ParentID = 1, _
-                    .Name = "Karen J. Kelly", _
-                    .Department = "Finance", _
-                    .Position = "Vice President" _
-                })
-
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 6, _
-                    .ParentID = 2, _
-                    .Name = "Brian C. Cowling", _
-                    .Department = "Marketing", _
-                    .Position = "Manager" _
-                })
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 7, _
-                    .ParentID = 2, _
-                    .Name = "Thomas C. Dawson", _
-                    .Department = "Marketing", _
-                    .Position = "Manager" _
-                })
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 8, _
-                    .ParentID = 2, _
-                    .Name = "Angel M. Wilson", _
-                    .Department = "Marketing", _
-                    .Position = "Manager" _
-                })
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 9, _
-                    .ParentID = 2, _
-                    .Name = "Bryan R. Henderson", _
-                    .Department = "Marketing", _
-                    .Position = "Manager" _
-                })
-
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 10, _
-                    .ParentID = 3, _
-                    .Name = "Harold S. Brandes", _
-                    .Department = "Operations", _
-                    .Position = "Manager" _
-                })
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 11, _
-                    .ParentID = 3, _
-                    .Name = "Michael S. Blevins", _
-                    .Department = "Operations", _
-                    .Position = "Manager" _
-                })
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 12, _
-                    .ParentID = 3, _
-                    .Name = "Jan K. Sisk", _
-                    .Department = "Operations", _
-                    .Position = "Manager" _
-                })
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 13, _
-                    .ParentID = 3, _
-                    .Name = "Sidney L. Holder", _
-                    .Department = "Operations", _
-                    .Position = "Manager" _
-                })
-
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 14, _
-                    .ParentID = 4, _
-                    .Name = "James L. Kelsey", _
-                    .Department = "Production", _
-                    .Position = "Manager" _
-                })
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 15, _
-                    .ParentID = 4, _
-                    .Name = "Howard M. Carpenter", _
-                    .Department = "Production", _
-                    .Position = "Manager" _
-                })
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 16, _
-                    .ParentID = 4, _
-                    .Name = "Jennifer T. Tapia", _
-                    .Department = "Production", _
-                    .Position = "Manager" _
-                })
-
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 17, _
-                    .ParentID = 5, _
-                    .Name = "Judith P. Underhill", _
-                    .Department = "Finance", _
-                    .Position = "Manager" _
-                })
-                stuff_Renamed.Add(New Employee() With { _
-                    .ID = 18, _
-                    .ParentID = 5, _
-                    .Name = "Russell E. Belton", _
-                    .Department = "Finance", _
-                    .Position = "Manager" _
-                })
-                Return stuff_Renamed
+                Dim stuff As ObservableCollection(Of Employee) = New ObservableCollection(Of Employee)()
+                stuff.Add(New Employee() With {.ID = 1, .ParentID = 0, .Name = "Gregory S. Price", .Department = "", .Position = "President"})
+                stuff.Add(New Employee() With {.ID = 2, .ParentID = 1, .Name = "Irma R. Marshall", .Department = "Marketing", .Position = "Vice President"})
+                stuff.Add(New Employee() With {.ID = 3, .ParentID = 1, .Name = "John C. Powell", .Department = "Operations", .Position = "Vice President"})
+                stuff.Add(New Employee() With {.ID = 4, .ParentID = 1, .Name = "Christian P. Laclair", .Department = "Production", .Position = "Vice President"})
+                stuff.Add(New Employee() With {.ID = 5, .ParentID = 1, .Name = "Karen J. Kelly", .Department = "Finance", .Position = "Vice President"})
+                stuff.Add(New Employee() With {.ID = 6, .ParentID = 2, .Name = "Brian C. Cowling", .Department = "Marketing", .Position = "Manager"})
+                stuff.Add(New Employee() With {.ID = 7, .ParentID = 2, .Name = "Thomas C. Dawson", .Department = "Marketing", .Position = "Manager"})
+                stuff.Add(New Employee() With {.ID = 8, .ParentID = 2, .Name = "Angel M. Wilson", .Department = "Marketing", .Position = "Manager"})
+                stuff.Add(New Employee() With {.ID = 9, .ParentID = 2, .Name = "Bryan R. Henderson", .Department = "Marketing", .Position = "Manager"})
+                stuff.Add(New Employee() With {.ID = 10, .ParentID = 3, .Name = "Harold S. Brandes", .Department = "Operations", .Position = "Manager"})
+                stuff.Add(New Employee() With {.ID = 11, .ParentID = 3, .Name = "Michael S. Blevins", .Department = "Operations", .Position = "Manager"})
+                stuff.Add(New Employee() With {.ID = 12, .ParentID = 3, .Name = "Jan K. Sisk", .Department = "Operations", .Position = "Manager"})
+                stuff.Add(New Employee() With {.ID = 13, .ParentID = 3, .Name = "Sidney L. Holder", .Department = "Operations", .Position = "Manager"})
+                stuff.Add(New Employee() With {.ID = 14, .ParentID = 4, .Name = "James L. Kelsey", .Department = "Production", .Position = "Manager"})
+                stuff.Add(New Employee() With {.ID = 15, .ParentID = 4, .Name = "Howard M. Carpenter", .Department = "Production", .Position = "Manager"})
+                stuff.Add(New Employee() With {.ID = 16, .ParentID = 4, .Name = "Jennifer T. Tapia", .Department = "Production", .Position = "Manager"})
+                stuff.Add(New Employee() With {.ID = 17, .ParentID = 5, .Name = "Judith P. Underhill", .Department = "Finance", .Position = "Manager"})
+                stuff.Add(New Employee() With {.ID = 18, .ParentID = 5, .Name = "Russell E. Belton", .Department = "Finance", .Position = "Manager"})
+                Return stuff
             End Function
         End Class
+
         Public Sub New()
-            InitializeComponent()
-            treeList.ItemsSource = Stuff.GetStuff()
+            Me.InitializeComponent()
+            Me.treeList.ItemsSource = Stuff.GetStuff()
         End Sub
 
         Private Sub OnDropRecord(ByVal sender As Object, ByVal e As DropRecordEventArgs)
             Dim data As Object = e.Data.GetData(GetType(RecordDragDropData))
-
-            For Each employee As Employee In DirectCast(data, RecordDragDropData).Records
+            For Each employee As Employee In CType(data, RecordDragDropData).Records
                 employee.Position = CType(e.TargetRecord, Employee).Position
                 employee.Department = CType(e.TargetRecord, Employee).Department
-            Next employee
+            Next
 
             If e.DropPosition = DropPosition.Inside Then
-                For Each employee As Employee In DirectCast(data, RecordDragDropData).Records
+                For Each employee As Employee In CType(data, RecordDragDropData).Records
                     employee.Position = ""
-                Next employee
+                Next
             End If
         End Sub
     End Class
