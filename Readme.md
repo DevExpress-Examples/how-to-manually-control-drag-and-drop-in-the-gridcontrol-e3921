@@ -5,30 +5,79 @@
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 
-# WPF Data Grid - Handle drag-and-drop operations
+# WPF Data Grid – Handle Drag and Drop Operations
 
-This example demonstrates how to use [drag-and-drop events](https://docs.devexpress.com/WPF/119241/controls-and-libraries/data-grid/drag-and-drop/drag-and-drop-options) to customize the drag-and-drop behavior in the [GridControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl).
-A drag-and-drop operation changes the **Position** and **Department** values based on the dropped record's new location.
+This example enables drag & drop in the [`GridControl`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl) with a [`TreeListView`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeListView). After a user drops a record, the grid updates  **Position** and **Department** fields of moved employees to match the target record. If the drop position is **Inside**, the grid clears the **Position** field.
 
-<!-- default file list -->
+![Handle Drag and Drop Operations](./Images/drag-and-drop.jpg)
 
-## Files to Look At
+Use this technique when you need to:
+
+* Match record fields to the drop target.
+* Apply custom rules on drop.
+* Use hierarchical drag & drop in a `TreeListView`.
+
+## Implementation Details
+
+### Grid Setup
+
+```xaml
+<dxg:GridControl SelectionMode="Row" AutoGenerateColumns="AddNew">
+  <dxg:GridControl.View>
+    <dxg:TreeListView
+      KeyFieldName="ID"
+      ParentFieldName="ParentID"
+      AutoExpandAllNodes="True"
+      AllowDragDrop="True"
+      DropRecord="OnDropRecord"/>
+  </dxg:GridControl.View>
+</dxg:GridControl>
+```
+
+### Custom Drop Logic
+
+1. Retrieve dragged records from `e.Data` as [`RecordDragDropData`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Core.RecordDragDropData).
+2. Assign **Position** and **Department** values from the target record to dragged employees.
+3. If `e.DropPosition == DropPosition.Inside`, clear the **Position** field.
+
+```csharp
+void OnDropRecord(object sender, DropRecordEventArgs e) {
+    var data = (RecordDragDropData)e.Data.GetData(typeof(RecordDragDropData));
+    var target = (Employee)e.TargetRecord;
+
+    foreach (Employee employee in data.Records) {
+        employee.Position = target.Position;
+        employee.Department = target.Department;
+    }
+
+    if (e.DropPosition == DropPosition.Inside) {
+        foreach (Employee employee in data.Records)
+            employee.Position = string.Empty;
+    }
+}
+```
+
+### Data Source
+
+Assign the data source when the window initializes:
+
+```csharp
+gridControl.ItemsSource = Staff.GetStaff();
+```
+
+## Files to Review
 
 * [MainWindow.xaml](./CS/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/MainWindow.xaml))
 * [MainWindow.xaml.cs](./CS/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/MainWindow.xaml.vb))
 
-<!-- default file list end -->
-
 ## Documentation
 
-* [Drag-and-Drop Options](https://docs.devexpress.com/WPF/119241/controls-and-libraries/data-grid/drag-and-drop/drag-and-drop-options)
-* [Process Drag-and-Drop Operations](https://docs.devexpress.com/WPF/400431/controls-and-libraries/data-grid/drag-and-drop/process-drag-and-drop-operations)
-* [Drag-and-Drop](http://docs.devexpress.com/WPF/11346/controls-and-libraries/data-grid/drag-and-drop)
+* [GridControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl)
+* [TreeListView](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeListView)
+* [Drag & Drop Options](https://docs.devexpress.com/WPF/119241/controls-and-libraries/data-grid/drag-and-drop/drag-and-drop-options)
+* [Process Drag & Drop Operations](https://docs.devexpress.com/WPF/400431/controls-and-libraries/data-grid/drag-and-drop/process-drag-and-drop-operations)
+* [Drag & Drop](https://docs.devexpress.com/WPF/11346/controls-and-libraries/data-grid/drag-and-drop)
 
-## More Examples
-
-* [WPF Data Grid - Implement Drag-and-Drop Between the GridControl and Other Controls](https://github.com/DevExpress-Examples/how-to-implement-drag-and-drop-between-the-gridcontrol-and-other-controls-t566741)
-* [WPF Data Grid - Customize the Drop Marker](https://github.com/DevExpress-Examples/how-to-customize-drop-marker-t568780)
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
