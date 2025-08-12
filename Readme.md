@@ -7,15 +7,13 @@
 
 # WPF Data Grid – Handle Drag & Drop Operations
 
-This example enables drag & drop in the [`GridControl`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl) with a [`TreeListView`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeListView). After a user drops a record, the grid updates  **Position** and **Department** fields of moved employees to match the target record. If the drop position is **Inside**, the grid clears the **Position** field.
+This example adds custom logic to the built-in drag & drop feature of the [`GridControl`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl) with a [`TreeListView`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeListView).
+
+When a user drops one or more records, the grid updates `Position` and `Department` fields of the moved employees to match the target record. If the drop position is `Inside`, the grid clears the `Position` field.
 
 ![Handle Drag & Drop Operations](./Images/drag-and-drop.jpg)
 
-Use this technique when you need to:
-
-* Match record fields to the drop target.
-* Apply custom rules on drop.
-* Use hierarchical drag & drop in a `TreeListView`.
+You can handle drag & drop operations to integrate your business rules into the standard drag & drop process (for example, to update field values, trigger calculations, or adjust related records based on the drop target).
 
 ## Implementation Details
 
@@ -55,14 +53,6 @@ void OnDropRecord(object sender, DropRecordEventArgs e) {
             employee.Position = string.Empty;
     }
 }
-```
-
-### Data Source
-
-Specify the data source when the window initializes:
-
-```csharp
-gridControl.ItemsSource = Staff.GetStaff();
 ```
 
 ## Files to Review
