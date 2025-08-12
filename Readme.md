@@ -5,11 +5,11 @@
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 
-# WPF Data Grid – Handle Drag and Drop Operations
+# WPF Data Grid – Handle Drag & Drop Operations
 
 This example enables drag & drop in the [`GridControl`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl) with a [`TreeListView`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeListView). After a user drops a record, the grid updates  **Position** and **Department** fields of moved employees to match the target record. If the drop position is **Inside**, the grid clears the **Position** field.
 
-![Handle Drag and Drop Operations](./Images/drag-and-drop.jpg)
+![Handle Drag & Drop Operations](./Images/drag-and-drop.jpg)
 
 Use this technique when you need to:
 
@@ -59,7 +59,7 @@ void OnDropRecord(object sender, DropRecordEventArgs e) {
 
 ### Data Source
 
-Assign the data source when the window initializes:
+Specify the data source when the window initializes:
 
 ```csharp
 gridControl.ItemsSource = Staff.GetStaff();
@@ -70,14 +70,6 @@ gridControl.ItemsSource = Staff.GetStaff();
 * [MainWindow.xaml](./CS/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/MainWindow.xaml))
 * [MainWindow.xaml.cs](./CS/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/MainWindow.xaml.vb))
 
-## More Examples
-
-* [Implement CRUD Operations in the WPF Data Grid](https://github.com/DevExpress-Examples/wpf-data-grid-implement-crud-operations)
-* [WPF Grid - Resize Rows Using a Splitter](https://github.com/sergepilipchuk/wpf-grid-resize-rows-using-splitter)
-* [WPF Data Grid - Specify Custom Content for Headers Displayed in the Column Chooser](https://github.com/DevExpress-Examples/wpf-data-grid-custom-content-for-column-chooser-headers)
-* [WPF Data Grid - Bind to Dynamic Data](https://github.com/DevExpress-Examples/wpf-bind-gridcontrol-to-dynamic-data)
-* [WPF Grid (TreeListView) - Sync TreeListNode Expansion with ViewModel](https://github.com/DevExpress-Examples/wpf-grid-sync-isnodeexpanded-with-view-model)
-
 ## Documentation
 
 * [GridControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl)
@@ -85,6 +77,14 @@ gridControl.ItemsSource = Staff.GetStaff();
 * [Drag & Drop Options](https://docs.devexpress.com/WPF/119241/controls-and-libraries/data-grid/drag-and-drop/drag-and-drop-options)
 * [Process Drag & Drop Operations](https://docs.devexpress.com/WPF/400431/controls-and-libraries/data-grid/drag-and-drop/process-drag-and-drop-operations)
 * [Drag & Drop](https://docs.devexpress.com/WPF/11346/controls-and-libraries/data-grid/drag-and-drop)
+
+## More Examples
+
+* [Implement CRUD Operations in the WPF Data Grid](https://github.com/DevExpress-Examples/wpf-data-grid-implement-crud-operations)
+* [WPF Grid - Resize Rows Using a Splitter](https://github.com/sergepilipchuk/wpf-grid-resize-rows-using-splitter)
+* [WPF Data Grid - Specify Custom Content for Headers Displayed in the Column Chooser](https://github.com/DevExpress-Examples/wpf-data-grid-custom-content-for-column-chooser-headers)
+* [WPF Data Grid - Bind to Dynamic Data](https://github.com/DevExpress-Examples/wpf-bind-gridcontrol-to-dynamic-data)
+* [WPF Grid (TreeListView) - Sync TreeListNode Expansion with ViewModel](https://github.com/DevExpress-Examples/wpf-grid-sync-isnodeexpanded-with-view-model)
 
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
